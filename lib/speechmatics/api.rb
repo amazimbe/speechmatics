@@ -51,41 +51,33 @@ module Speechmatics
       Speechmatics::Response.parse(response, {api: self, method: method, path: path, params: params})
     end
 
-    def base_path
-      parts = self.class.name.split("::").inject([]){|a, c|
-        if c != 'Speechmatics'
-          base = c.underscore
-          a << base.tr('_','-')
-          a << current_options["#{base.singularize}_id"] if current_options["#{base.singularize}_id"]
-        end
-        a
-      }
-      parts.join('/') + '/'
+    def users
+      '/jobs/'
     end
 
     def list(params={})
       self.current_options = current_options.merge(args_to_options(params))
-      request(:get, base_path)
+      request(:get, users)
     end
 
     def get(params={})
       self.current_options = current_options.merge(args_to_options(params))
-      request(:get, base_path)
+      request(:get, users)
     end
 
     def create(params={})
       self.current_options = current_options.merge(args_to_options(params))
-      request(:post, base_path, {data: params})
+      request(:post, users, {data: params})
     end
 
     def update(params={})
       self.current_options = current_options.merge(args_to_options(params))
-      request(:put, base_path, {data: params})
+      request(:put, users, {data: params})
     end
 
     def delete(params={})
       self.current_options = current_options.merge(args_to_options(params))
-      request(:delete, base_path)
+      request(:delete, users)
     end
 
     def args_to_options(args)

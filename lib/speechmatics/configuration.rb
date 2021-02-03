@@ -4,7 +4,6 @@ module Speechmatics
   module Configuration
 
     VALID_OPTIONS_KEYS = [
-      :user_id,
       :auth_token,
       :adapter,
       :endpoint,
@@ -15,7 +14,7 @@ module Speechmatics
     DEFAULT_ADAPTER = :excon
 
     # The api endpoint to get REST
-    DEFAULT_ENDPOINT = 'https://api.speechmatics.com/v1.0/'.freeze
+    DEFAULT_ENDPOINT = 'https://trial.asr.api.speechmatics.com/v2'.freeze
 
     # The value sent in the http header for 'User-Agent' if none is set
     DEFAULT_USER_AGENT = "Speechmatics Ruby Gem #{Speechmatics::VERSION}".freeze
@@ -45,7 +44,6 @@ module Speechmatics
 
     # Reset configuration options to their defaults
     def reset!
-      self.user_id      = nil
       self.auth_token   = nil
       self.adapter      = DEFAULT_ADAPTER
       self.endpoint     = DEFAULT_ENDPOINT

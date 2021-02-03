@@ -13,8 +13,9 @@ module Speechmatics
       super
     end
 
-    def transcript(params={})
-      self.current_options = current_options.merge(args_to_options(params))
+    def transcript(params)
+      base_path = "/jobs/#{params[:job_id]}"
+    
       if params[:format] == "txt"
         request(:get, "#{base_path}/transcript?format=txt")
       else

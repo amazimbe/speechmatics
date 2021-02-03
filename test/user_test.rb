@@ -16,7 +16,7 @@ describe Speechmatics::Client do
 
   let(:stubs) {
     Faraday::Adapter::Test::Stubs.new do |stub|
-      stub.get('/v1.0/user/1/?auth_token=token') { [200, {"Content-Type" => "application/json"}, response.to_json] }
+      stub.get('/v2/user/1/?auth_token=token') { [200, {"Content-Type" => "application/json"}, response.to_json] }
     end
   }
 

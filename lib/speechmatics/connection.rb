@@ -19,8 +19,8 @@ module Speechmatics
       params = opts.delete(:params) || {}
       options = {
         url: endpoint,
-        params: { auth_token: auth_token },
-        headers: { 'User-Agent' => user_agent, 'Accept' => 'application/json' },
+        params: { },
+        headers: { 'Authorization': "Bearer #{auth_token}", 'User-Agent' => user_agent, 'Accept' => 'application/json' },
         ssl: { verify: false },
         request: { timeout: 120 }
       }.merge(opts)

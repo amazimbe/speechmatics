@@ -7,6 +7,5 @@ module Speechmatics
     def jobs(params={}, &block)
       @jobs ||= ApiFactory.api('Speechmatics::User::Jobs', self, params, &block)
     end
-
   end
 end

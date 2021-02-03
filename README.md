@@ -67,7 +67,7 @@ job = c.user.jobs.find(5678)
 # retrieve trancript for a job
 trans = c.user.jobs(5678).transcript
 # alt syntax
-trans = c.user.jobs.transcript(5678)
+trans = c.user.jobs.transcript(job_id: "8j542s13gv")
 
 ```
 

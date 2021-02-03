@@ -3,17 +3,18 @@
 require 'rubygems'
 require 'active_support/all'
 
-require "speechmatics/version"
-require 'speechmatics/configuration'
-require 'speechmatics/connection'
-require 'speechmatics/response'
-require 'speechmatics/response/error'
+require_relative "./speechmatics/version"
+require_relative './speechmatics/configuration'
+require_relative './speechmatics/connection'
+require_relative './speechmatics/response'
+require_relative './speechmatics/response/error'
 Gem.find_files('speechmatics/response/error/*.rb').each { |path| require path }
-require 'speechmatics/api'
-require 'speechmatics/api_factory'
-require 'speechmatics/client'
-require 'speechmatics/user'
-require 'speechmatics/user/jobs'
+require_relative './speechmatics/api'
+require_relative './speechmatics/api_factory'
+require_relative './speechmatics/client'
+require_relative './speechmatics/user'
+require_relative './speechmatics/user/jobs'
+
 
 module Speechmatics
   extend Configuration
