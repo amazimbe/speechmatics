@@ -61,12 +61,7 @@ info = c.user.jobs.create(
   callback: 'http://www.example.com/transcript_callback'
 )
 
-# retrieve job
-job = c.user.jobs.find(5678)
-
-# retrieve trancript for a job
-trans = c.user.jobs(5678).transcript
-# alt syntax
+# retrieve transcript for a job
 trans = c.user.jobs.transcript(job_id: "8j542s13gv")
 
 ```
