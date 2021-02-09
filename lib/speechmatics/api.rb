@@ -44,6 +44,7 @@ module Speechmatics
         when :get, :delete
           request.url(request_path, params)
         when :post, :put
+          request.headers['Content-Type'] = 'multipart/form-data'
           request.path = request_path
           request.body = params[:data]
         end
@@ -58,11 +59,7 @@ module Speechmatics
     def list(params={})
       self.current_options = current_options.merge(args_to_options(params))
       request(:get, users)
-    end
 
-    def get(params={})
-      self.current_options = current_options.merge(args_to_options(params))
-      request(:get, users)
     end
 
     def create(params={})

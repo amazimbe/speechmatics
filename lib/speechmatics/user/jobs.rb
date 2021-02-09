@@ -6,10 +6,14 @@ module Speechmatics
   class User::Jobs < API
     include Configuration
 
+    def get(job_id)
+      request(:get, "/jobs/#{job_id}")
+    end
+
     def create(params={})
+      attach_config(params)
       attach_audio(params)
       attach_text(params) if params[:text_file]
-      set_mode(params)
       super
     end
 
@@ -28,10 +32,9 @@ module Speechmatics
       request(:get, "#{base_path}/alignment")
     end
 
-    def set_mode(params={})
-      unless params[:text_file]
-        params[:model] ||= 'en-US'
-      end
+    def attach_config(params={})
+      config = params.delete(:config)
+      params[:config] = config.to_json
       params
     end
 
