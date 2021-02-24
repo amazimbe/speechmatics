@@ -22,6 +22,8 @@ module Speechmatics
     
       if params[:format] == "txt"
         request(:get, "#{base_path}/transcript?format=txt")
+      elsif params[:format] == "srt"
+        request(:get, "#{base_path}/transcript?format=srt")
       else
         request(:get, "#{base_path}/transcript")
       end
